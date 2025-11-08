@@ -5,6 +5,9 @@ import { connectDB } from "./lib/db.js";
 import cors from "cors";
 import {serve} from "inngest/express";
 import {inngest, functions} from "./lib/inngest.js";
+import { clerkMiddleware } from '@clerk/express';
+import { protectRoute } from "./middleware/protectRoute.js";
+import chatRoutes from "./routes/chatRoutes.js";
 // express config
 const app = express();
 
@@ -17,18 +20,21 @@ app.use(express.json());
 // creadentials true meaning => server allows a browser to send cookies on a cross-origin request
 app.use(cors({origin:ENV.CLIENT_URL, credentials: true}));
 
+// clerk middleware for authentication
+app.use(clerkMiddleware());  // this will add auth fields to the request object : req.auth()
+
 // inngest endpoint handler and functions and middleware webhook handler
 app.use("/api/inngest",serve({client:inngest,functions}));
+
+app.use("/api/chat",chatRoutes)
 
 
 // default route handler
 app.get("/health", (req, res) => {
     res.status(200).json({msg: "Api is up and running!"});
 })
+ 
 
-app.get("/books", (req, res) => {
-    res.status(200).json({msg: "Api is up and running! on books route"});
-})
 
 // make our app ready for deployment and serve static files in production
 if(ENV.NODE_ENV === "production"){
