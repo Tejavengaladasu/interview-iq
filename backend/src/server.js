@@ -17,6 +17,7 @@ app.use(express.json());
 // creadentials true meaning => server allows a browser to send cookies on a cross-origin request
 app.use(cors({origin:ENV.CLIENT_URL, credentials: true}));
 
+// inngest endpoint handler and functions and middleware webhook handler
 app.use("/api/inngest",serve({client:inngest,functions}));
 
 
