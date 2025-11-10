@@ -8,6 +8,7 @@ import {inngest, functions} from "./lib/inngest.js";
 import { clerkMiddleware } from '@clerk/express';
 import { protectRoute } from "./middleware/protectRoute.js";
 import chatRoutes from "./routes/chatRoutes.js";
+import sessionRoute from "./routes/sessionRoute.js";
 // express config
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(clerkMiddleware());  // this will add auth fields to the request object 
 app.use("/api/inngest",serve({client:inngest,functions}));
 
 app.use("/api/chat",chatRoutes)
+app.use("/api/sessions",sessionRoute)
 
 
 // default route handler
