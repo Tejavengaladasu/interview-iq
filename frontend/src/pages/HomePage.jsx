@@ -9,7 +9,7 @@ const HomePage = () => {
       <button className='btn btn-secondary ' onClick={()=> toast.success("seconsary button")}>toast button</button>
       <SignedOut>
         <SignInButton mode='modal'>
-          <button className='btn btn-primary'>Login</button>
+          <button className='btn btn-primary'>Login button</button>
         </SignInButton>
       </SignedOut>
 
