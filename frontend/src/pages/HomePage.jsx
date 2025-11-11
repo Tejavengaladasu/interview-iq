@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 const HomePage = () => {
   return (
     <div>
-      <button className='btn btn-secondary ' onClick={()=> toast.success("seconsary button")}>toast button</button>
+      <button className='btn btn-secondary ' onClick={()=> toast.success("seconsary button toast")}>toast button click</button>
       <SignedOut>
         <SignInButton mode='modal'>
           <button className='btn btn-primary'>Login button</button>
