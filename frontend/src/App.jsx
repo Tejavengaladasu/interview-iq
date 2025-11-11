@@ -6,7 +6,7 @@ import {Toaster} from "react-hot-toast"
 
 function App() {
 
-  const {isSignedIn}=  useUser()
+  const {isSignedIn}=  useUser();
   return (
     <>
       <Routes>
