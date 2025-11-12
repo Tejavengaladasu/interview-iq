@@ -40,7 +40,7 @@ export async function executeCode(language,code){
         if(!response.ok){
             return {
                 success:false,
-                error: `HHTP error ${response.status}`
+                error: `HTTP error ${response.status}`
             }
         }
         const data = await response.json();

@@ -31,7 +31,7 @@ const ProblemDescription = ({problem,currentProblemId,onProblemChange,allProblem
       <div className='p-6 space-y-6'>
         {/* problem description */}
         <div className='bg-base-100 rounded-xl shadow-sm p-5 border border-base-300'>
-          <h2 className='text-xl font-bold tetxt-base-content'>Description</h2>
+          <h2 className='text-xl font-bold text-base-content'>Description</h2>
           <div className='space-y-3 text-base leading-relaxed'>
             <p className='text-base-content/90'>{problem.description.text}</p>
             {problem.description.notes.map((note,idx)=>(
