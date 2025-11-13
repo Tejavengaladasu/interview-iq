@@ -11,6 +11,7 @@ const ProblemsPage = () => {
   const easyProblemCount = problems.filter(p=>p.difficulty === "Easy").length
   const mediumProblemCount = problems.filter(p=>p.difficulty === "Medium").length
   const hardProblemCount = problems.filter(p=>p.difficulty === "Hard").length
+
   return (
     <div className='min-h-screen bg-base-200'>
       <Navbar />
